@@ -136,11 +136,6 @@ function map_get(key) {
 if (!storage.contains("answer_question_map1")) {
     toast("正在下载题库");
     var answer_question_bank = http.get("https://gh-proxy.com/https://raw.githubusercontent.com/Mondayfirst/XXQG_TiKu/main/%E9%A2%98%E5%BA%93_%E6%8E%92%E5%BA%8F%E7%89%88.json");
-    // 如果资源过期或无法访问则换成别的云盘
-    if (!(answer_question_bank.statusCode >= 200 && answer_question_bank.statusCode < 300)) {
-        // 使用腾讯云
-        var answer_question_bank = http.get("https://xxqg-tiku-1305531293.cos.ap-nanjing.myqcloud.com/%E9%A2%98%E5%BA%93_%E6%8E%92%E5%BA%8F%E7%89%88.json");
-    }
     answer_question_bank = answer_question_bank.body.string();
     answer_question_bank = JSON.parse(answer_question_bank);
 
@@ -322,14 +317,14 @@ function back_track(back_track_flag) {
                 sleep(random_time(delay_time));
                 click(home_bottom.bounds().centerX(), home_bottom.bounds().centerY());
                 // 前往省份页面
-                //log("等待:" + "android.view.ViewGroup");
+                log("等待:" + "android.view.ViewGroup");
                 var exist = className("android.view.ViewGroup").depth(15).findOne(random_time(15000));
                 if (exist == null) {
                     exit_the_app();
                     continue loop;
                 }
                 sleep(random_time(delay_time));
-                //log("点击:" + "android.view.ViewGroup");
+                log("点击:" + "android.view.ViewGroup");
                 className("android.view.ViewGroup").depth(15).findOnce(2).child(3).click();
                 return true;
             case 1:
@@ -346,7 +341,7 @@ function back_track(back_track_flag) {
                     continue loop;
                 }
                 sleep(random_time(delay_time));
-                //log("等待:" + "积分规则");
+                log("等待:" + "积分规则");
                 var exist = text("积分规则").findOne(random_time(15000));
                 if (exist == null) {
                     exit_the_app();
@@ -1526,7 +1521,7 @@ if (!finish_list[4] && special_answer_scored < 5) {
         if (is_answer_special_flag) {
             // 点击完成
             sleep(random_time(delay_time));
-            //log("等待:" + "完成");
+            log("等待:" + "完成");
             var exist = text("完成").findOne(random_time(15000));
             if (exist == null) {
                 exit_the_app();
