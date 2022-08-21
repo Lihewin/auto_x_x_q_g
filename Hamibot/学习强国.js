@@ -1906,52 +1906,6 @@ while (!finish_list[8] && whether_complete_subscription == "yes") {
     finish_list = get_finish_list();
 }
 
-/*
- **********分享与发表观点*********
- */
-
-// 分享两次
-/*
-if (!finish_list[10]) {
-    var attempt = 0;
-    loop: while (true) {
-        if (attempt > 7) {
-            log("分享两次失败");
-            push_weixin_message("分享两次失败");
-            break;
-        }
-        sleep(random_time(delay_time));
-        if (!className("android.view.View").packageName("cn.xuexi.android").depth(21).text("学习积分").exists()) back_track(2);
-        entry_model(15);
-        // 随意找一篇文章
-        sleep(random_time(delay_time));
-        if (!my_click_clickable("推荐")) {
-            exit_the_app();
-            continue loop;
-        }
-        sleep(random_time(delay_time * 2));
-        log("点击:" + "android.widget.FrameLayout");
-        className("android.widget.FrameLayout").clickable(true).depth(22).findOnce(0).click();
-        sleep(random_time(delay_time * 2));
-        for (var i = 0; i < 2; i++) {
-            // 分享按键
-            log("分享" + i);
-            log("点击:" + "ImageView");
-            className("ImageView").depth(10).clickable(true).findOnce(2).click();
-            sleep(random_time(delay_time / 2));
-            if (!my_click_clickable("分享到学习强国")) {
-                exit_the_app();
-                continue loop;
-            }
-            sleep(random_time(delay_time));
-            back();
-            sleep(random_time(delay_time));
-        }
-        break;
-    }
-}
-*/
-
 if (!finish_list[9] && whether_complete_speech == "yes") {
     var attempt = 0;
     loop: while (true) {
